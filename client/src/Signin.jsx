@@ -10,29 +10,8 @@ import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 
 function Signin() {
-  const [email,setEmail] = useState('')
-  const [password,setPassword] = useState('')
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await axios.post('http://localhost:5000/https://api.indrajala.in/api/user/login', {
-        email,
-        password,
-      });
-
-      if (response.status === 200) {
-        setMessage('Login successful!');
-      }
-    } catch (error) {
-      if (error.response && error.response.status === 401) {
-        setMessage('Invalid credentials');
-      } else {
-        setMessage('Something went wrong');
-      }
-    }
-}
+   const [email,setEmail] = useState('')
+   const [password,setPassword] = useState('')
 
   return (
     <div className="d-flex justify-content-center align-items-center bg-black vh-100">
@@ -94,6 +73,6 @@ function Signin() {
       </div>
     </div>
   );
-}
 
+}
 export default Signin;
