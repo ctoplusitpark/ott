@@ -1,0 +1,147 @@
+.registration-background {
+    background-image: url('/public/background.png'); /* Path relative to the public folder */
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .registration-container {
+    background: rgba(6, 5, 5, 0.8); /* White background with transparency */
+    padding: 20px;
+    border-radius: 14.67px;
+    width: 100%; 
+    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure padding is included in the width */
+  }
+  
+  h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.5rem; /* Responsive font size */
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-container {
+    position: relative;
+  }
+  
+  .form-icon {
+    position: absolute;
+    left: 10px; /* Adjust as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px; /* Adjust size of icons */
+    height: 24px;
+  }
+  
+  input {
+    color: white;
+    background-color: rgb(40, 39, 39);
+    padding: 10px 10px 10px 40px; /* Adjust padding to make room for the icon */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+  }
+  
+  button {
+    padding: 10px;
+    background-color: #007bff; /* Blue color for the button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem; /* Responsive font size */
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error {
+    color: red;
+    text-align: center;
+  }
+  
+  .success {
+    color: green;
+    text-align: center;
+  }
+
+  
+  /* privacy policy */
+
+.checkbox-container {
+    display:  grid;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+  }
+  
+  .checkbox-container label {
+    font-size: 10.36px;
+    color: #fffcfc; /* Dark text color */
+  }
+
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .registration-container {
+      padding: 15px;
+      max-width: 90%;
+    }
+  
+    h1 {
+      font-size: 1.25rem;
+    }
+  
+    .form-icon {
+      width: 20px;
+      height: 20px;
+    }
+  
+    input {
+      padding: 10px 10px 10px 35px; /* Adjust for smaller icons */
+    }
+  
+    button {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .registration-container {
+      padding: 10px;
+      max-width: 95%;
+    }
+  
+    h1 {
+      font-size: 1rem;
+    }
+  
+    .form-icon {
+      width: 18px;
+      height: 18px;
+    }
+  
+    input {
+      padding: 10px 10px 10px 30px; /* Adjust for even smaller icons */
+    }
+  
+    button {
+      font-size: 0.8rem;
+    }
+  }
+  
