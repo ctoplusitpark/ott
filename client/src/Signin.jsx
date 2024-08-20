@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {useHistory} from 'react-router-dom'
+// import {useHistory} from 'react-router-dom'
 import axios from 'axios'
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -9,9 +9,30 @@ import Button from "@mui/material/Button";
 import LoginOutlinedIcon from "@mui/icons-material/LoginOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 
-function Signin() {
+const Signin = () => {
    const [email,setEmail] = useState('')
    const [password,setPassword] = useState('')
+   const [message, setMessage] = useState('');
+
+   const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('http://localhost:5001/api/login', {
+        email,
+        password,
+      });
+
+      if (response.status === 200) {
+        // Successful login, handle token storage
+        const { token } = response.data;
+        localStorage.setItem('authToken', token);
+        setMessage('Login successful!');
+      }
+    } catch (error) {
+      setMessage('Login failed. Please check your credentials.');
+    }
+  };
 
   return (
     <div className="d-flex justify-content-center align-items-center bg-black vh-100">
