@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-// import {useHistory} from 'react-router-dom'
 import axios from 'axios'
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -14,11 +13,15 @@ const Signin = () => {
    const [password,setPassword] = useState('')
    const [message, setMessage] = useState('');
 
+   const messageStyle = {
+    color: 'white'
+  };
+  
    const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:5001/api/login', {
+      const response = await axios.post('http://localhost:5000/api/login', {
         email,
         password,
       });
@@ -37,7 +40,7 @@ const Signin = () => {
   return (
     <div className="d-flex justify-content-center align-items-center bg-black vh-100">
       <div className="bg-dark p-3 rounded w-50">
-        <form>
+        <form onSubmit={handleSubmit}>
         <p className="text-light">
         <strong>Sign-In</strong> and Enjoy thosands of Movies and Series from
         our library
@@ -45,6 +48,7 @@ const Signin = () => {
           <div className="mb-3">
             <TextField
               type="text"
+              value={email}
               placeholder="Email/Mobile Number"
               onChange={(e)=>setEmail(e.target.value)}
               className="form-control bg-secondary rounded-0"
@@ -61,6 +65,7 @@ const Signin = () => {
           <div className="mb-3">
             <TextField
               type="password"
+              value={password}
               placeholder="Password.."
               onChange={(e)=>setPassword(e.target.value)}
               className="form-control bg-secondary rounded-0"
@@ -75,7 +80,7 @@ const Signin = () => {
           </div>
           <p className="text-light">Forgot Password?</p>
           <Button
-          onSubmit={handleSubmit}
+          type="submit"
             variant="contained"
             color="primary"
             endIcon={<LoginOutlinedIcon />}
@@ -91,9 +96,9 @@ const Signin = () => {
             Create A New Account
           </Button>
         </form>
+        {message && <p style={messageStyle}>{message}</p>}
       </div>
     </div>
   );
-
 }
 export default Signin;

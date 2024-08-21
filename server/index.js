@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -19,7 +18,7 @@ app.post('/api/login', async (req, res) => {
     });
 
     if (response.status === 200) {
-      res.status(200).json(response.data); // Sending back the token
+      res.status(200).json(response.data); 
     } else {
       res.status(response.status).json({ message: 'Login failed' });
     }
